@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Design :: Clowder Documentation</title>
     <link rel="canonical" href="https://redhatinsights.github.io/clowder/clowder/dev/developer-guide.html">
-    <meta name="generator" content="Antora 2.3.4">
+    <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../ui/css/site.css">
     <script>var uiRootPath = '../../ui'</script>
   </head>
@@ -39,14 +39,6 @@
             <a class="navbar-item" href="#">Service C</a>
           </div>
         </div>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="#">Resources</a>
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="#">Resource A</a>
-            <a class="navbar-item" href="#">Resource B</a>
-            <a class="navbar-item" href="#">Resource C</a>
-          </div>
-        </div>
         <div class="navbar-item">
           <span class="control">
             <a class="button is-primary" href="#">Download</a>
@@ -71,6 +63,18 @@
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="contributing.html">Contributing</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="developer-guide.html">Developer Guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="crc-guide.html">CodeReady Containers Guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="sop.html">SOP</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="faq.html">FAQ</a>
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
@@ -178,7 +182,7 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">Clowder</a></li>
-    <li><a href="developer-guide.html">Design</a></li>
+    <li><a href="developer-guide.html">Developer Guide</a></li>
   </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/RedHatInsights/clowder/edit/master/docs/antora/modules/ROOT/pages/developer-guide.adoc">Edit this Page</a></div>
@@ -201,9 +205,6 @@
 <div class="sectionbody">
 <div class="ulist">
 <ul>
-<li>
-<p>Install <a href="https://sdk.operatorframework.io/docs/installation/#install-from-github-release">operator-sdk</a></p>
-</li>
 <li>
 <p>Install the latest <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">kubectl</a></p>
 </li>
@@ -253,7 +254,7 @@ use the <code>KUBEBUILDER_ASSETS</code> env var when running tests (mentioned in
 <div class="ulist">
 <ul>
 <li>
-<p>Install <a href="https://kubernetes-sigs.github.io/kustomize/installation/binaries/">kustomize</a></p>
+<p>Install <a href="https://kubectl.docs.kubernetes.io/installation/kustomize/binaries/">kustomize</a></p>
 <div class="ulist">
 <ul>
 <li>
@@ -343,6 +344,138 @@ has been altered.</p>
 </div>
 </div>
 <div class="sect1">
+<h2 id="_using_a_debugger"><a class="anchor" href="#_using_a_debugger"></a>Using a Debugger</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Developing Clowder is easier if you run the code in a debugger. We&#8217;ll cover two ways to do this: with Delve and with VS Code. Both provide the same features (VS Code actually uses Delve under the hood.) The difference is VS Code provides you with a GUI and integration with the IDE whereas Delve is a command line tool and required using the Delve CLI and command system.</p>
+</div>
+<div class="sect2">
+<h3 id="_pre_requisites"><a class="anchor" href="#_pre_requisites"></a>Pre-requisites</h3>
+<div class="paragraph">
+<p>Wether you choose to use Delve or VS Code, you&#8217;ll need to set up a few things first. You&#8217;ll need to start minikube and build and install the CRDs. You&#8217;ll also need a Clowder config file handy.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Ensure you have clowder code cloned and you&#8217;ve installed the CRDs into minikube</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">minikube start --cpus 4 --disk-size 36GB --memory 16000MB --driver=kvm2 --addons registry --addons ingress --addons metrics-server ; make build ; make install ; ./build/kube_setup.sh</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Ensure you have a clowder config file saved. Here&#8217;s an example config file:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "debugOptions": {
+        "trigger": {
+            "diff": false
+        },
+        "cache": {
+            "create": false,
+            "update": false,
+            "apply": false
+        },
+        "pprof": {
+            "enable": true,
+            "cpuFile": "testcpu"
+        }
+    },
+    "features": {
+        "createServiceMonitor": true,
+        "watchStrimziResources": true,
+        "enableKedaResources": true,
+        "reconciliationMetrics": true,
+        "enableExternalStrimzi": true,
+        "disableWebhooks": true
+    }
+}</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_delve"><a class="anchor" href="#_delve"></a>Delve</h3>
+<div class="paragraph">
+<p>Delve is a Go debugger. It allows you to run your app, set breakpoints, etc from the command line. Further reading will be required to learn to use Delve effectively if you haven&#8217;t used Delve before.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Run the through the Pre-requisites section above and make sure you have minikube running and the CRDs installed.</p>
+</li>
+<li>
+<p>Ensure you have <a href="https://github.com/go-delve/delve">Delve</a>, the Go debugger installed</p>
+</li>
+<li>
+<p>Now you can start the debugger, while setting the CLOWDER_CONFIG_PATH environment variable to the path of your config file. After launching the debugger you can set any breakpoints you want and then continue execution.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ CLOWDER_CONFIG_PATH=/path/to/config/sample_config.json  /go/path/dlv debug ./main.go
+Type 'help' for list of commands.
+(dlv) continue
+Loading config from: /home/adamdrew/clowderConfig/sample_config.json
+{"level":"info","ts":1664213244.8772495,"logger":"setup","msg":"Loaded config","config":{"images":{"mbop":"","caddy":"","Keycloak":"","mocktitlements":""},"debugOptions":{"Logging":{"debugLogging":false},"trigger":{"diff":false},"cache":</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_vs_code"><a class="anchor" href="#_vs_code"></a>VS Code</h3>
+<div class="paragraph">
+<p>VS Code an open source IDE that is popular with many of the Clowder developers. Setting up a debugger with VS Code is easy and provides a GUI for setting breakpoints, stepping through code, etc.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Run the through the Pre-requisites section above and make sure you have minikube running and the CRDs installed.</p>
+</li>
+<li>
+<p>Install <a href="https://code.visualstudio.com/">VS Code</a></p>
+</li>
+<li>
+<p>Install the <a href="https://marketplace.visualstudio.com/items?itemName=golang.Go">Go extension</a> for VS Code</p>
+</li>
+<li>
+<p>Open the Clowder code in VS Code</p>
+</li>
+<li>
+<p>Create a launch.json file in the .vscode directory. Here&#8217;s an example launch.json file:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Clowder Launch",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/",
+            "env": {
+                "CLOWDER_CONFIG_PATH": "/home/adamdrew/clowderConfig/sample_config.json"
+              }
+        },
+    ]
+}</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>You can now debug Clowder in VS Code</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_testing"><a class="anchor" href="#_testing"></a>Testing</h2>
 <div class="sectionbody">
 <div class="sect2">
@@ -364,6 +497,48 @@ get initialized against a control plane just like it would against a real OpenSh
 <div class="paragraph">
 <p>If you&#8217;re just getting started with writing tests in Go, or getting started with Go in general, take
 a look at <a href="https://quii.gitbook.io/learn-go-with-tests/" class="bare">https://quii.gitbook.io/learn-go-with-tests/</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_debugging_unit_tests_in_vs_code"><a class="anchor" href="#_debugging_unit_tests_in_vs_code"></a>Debugging Unit Tests in VS Code</h3>
+<div class="paragraph">
+<p>We include a special make target that will launch a special debug instance of VS Code that can run and debug the unit tests. This is useful if you want to set breakpoints in the unit tests and step through them.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Make sure you have all of the pre-requisites for running clowder installed and operational.</p>
+</li>
+<li>
+<p>Make sure you have VS Code installed including the Go extension.</p>
+</li>
+<li>
+<p>Close any instance of VS Code that has Clowder open in it.</p>
+</li>
+<li>
+<p>Run the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">make vscode-debug</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>VS Code will launch</p>
+</li>
+<li>
+<p>Open any file that contains unit tests</p>
+</li>
+<li>
+<p>You will see the green play button next to each test as well as the <code>run test</code> and <code>debug test</code> buttons above each test</p>
+</li>
+<li>
+<p>You can use the run or debug test buttons to run and debug the tests from within VS Code</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Note: Some features of VS Code may not work correctly when launched this way. We reccomend only launching code this way when you want to write and debug unit tests.</p>
 </div>
 </div>
 <div class="sect2">
@@ -406,7 +581,7 @@ access to a remote cluster on which to test the operator.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">minikube start --addons=registry
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">minikube start --addons=registry --addons=ingress  --addons=metrics-server --disable-optimizations
 /e2e-test-local.sh</code></pre>
 </div>
 </div>
@@ -473,9 +648,9 @@ by Elastic. You will need to install <code>asciidoctor</code>:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_building_docs"><a class="anchor" href="#_building_docs"></a>Building docs</h3>
+<h3 id="_generating_docs"><a class="anchor" href="#_generating_docs"></a>Generating docs</h3>
 <div class="paragraph">
-<p>Build the docs using:</p>
+<p>Generating the docs source using:</p>
 </div>
 <div class="paragraph">
 <p><code>make api-docs</code></p>
@@ -484,8 +659,321 @@ by Elastic. You will need to install <code>asciidoctor</code>:</p>
 <p>Then be sure to add doc changes before committing, e.g.:</p>
 </div>
 <div class="paragraph">
-<p><code>git add docs/api_reference.html</code></p>
+<p><code>git add docs/antora/modules/ROOT/pages/api_reference.adoc</code></p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_previewing_docs"><a class="anchor" href="#_previewing_docs"></a>Previewing Docs</h3>
+<div class="paragraph">
+<p>The build docs stage only generates the asciidoc files. To actually view them, it is required to
+install antora.</p>
+</div>
+<div class="paragraph">
+<p><code>npm install @antora/cli@2.3 @antora/site-generator-default@2.3</code></p>
+</div>
+<div class="paragraph">
+<p>A <code>playbook.yaml</code> is required at the root of the repo which refers to certain directories:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">site:
+  title: Clowder Documentation
+  url: https://redhatinsights.github.io/clowder/
+  start_page: clowder::index.adoc
+content:
+  sources:
+  - url: /path/to/clowder/
+    branches: master
+    start_path: docs/antora
+ui:
+  bundle:
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/master/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true
+  output_dir: ui
+runtime:
+  fetch: true
+output:
+  dir: docs</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After this, the antora build can be invoked:</p>
+</div>
+<div class="paragraph">
+<p><code>./node_modules/.bin/antora generate playbook.yaml</code></p>
+</div>
+<div class="paragraph">
+<p>And then viewed from the <code>docs/clowder/dev/index.html</code> entrypoint.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_clowder_configuration"><a class="anchor" href="#_clowder_configuration"></a>Clowder configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Clowder can read a configuration file in order to turn on certain debug options, toggle feature
+flags and perform profiling. By default clowder will read from the file
+<code>/config/clowder_config.json</code> to configure itself. When deployed as a pod, it an optional volume
+is configured to look for a <code>ConfigMap</code> in the same namespace, called <code>clowder-config</code> which
+looks similar to the following.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: v1
+data:
+  clowder_config.json: |-
+    {
+        "debugOptions": {
+            "trigger": {
+                "diff": false
+            },
+            "cache": {
+                "create": false,
+                "update": false,
+                "apply": false
+            },
+            "pprof": {
+                "enable": true,
+                "cpuFile": "testcpu"
+            }
+        },
+        "features": {
+            "createServiceMonitor": false,
+            "watchStrimziResources": true
+        }
+    }
+kind: ConfigMap
+metadata:
+  name: clowder-config</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To run clowder with the <code>make run</code> (or to debug it VSCode), and apply configuration, it is
+required to either create the <code>/config/clowder_config.json</code> file in the filesystem of the machine
+running the Clowder process, or to use the environment variable <code>CLOWDER_CONFIG_PATH</code> to point to
+an alternative file.</p>
+</div>
+<div class="paragraph">
+<p>At startup, Clowder will print the configuration that was read in the logs</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">[2021-06-16 11:10:44] INFO   Loaded config config:{'debugOptions': {'trigger': {'diff': True}, 'cache': {'create': True, 'update': True, 'apply': True}, 'pprof': {'enable': True, 'cpuFile': 'testcpu'}}, 'features': {'createServiceMonitor': False, 'disableWebhooks': True, 'watchStrimziResources': False, 'useComplexStrimziTopicNames': False}}</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_debug_flags"><a class="anchor" href="#_debug_flags"></a>Debug flags</h3>
+<div class="paragraph">
+<p>Clowder has several debug flags which can aid in troubleshooting difficult situations. These are
+defined in the below.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>debugOptions.trigger.diff</code> - When a resource is responsible for triggering a reconciliation of
+either a <code>ClowdApp</code> or a <code>ClowdEnvironment</code> this option will print out a diff of the old and
+new resource, allowing an inspection of what actually triggered the reconciliation.</p>
+<div class="literalblock">
+<div class="content">
+<pre>[2021-06-16 11:24:49] INFO APP  Reconciliation trigger name:puptoo-processor namespace:test-basic-app resType:Deployment type:update
+[2021-06-16 11:24:49] INFO APP  Trigger diff diff:--- old
++++ new
+@@ -3,8 +3,8 @@
+    "name": "puptoo-processor",
+    "namespace": "test-basic-app",
+    "uid": "de492af3-be26-4a2c-b959-54b674c9e34f",
+-    "resourceVersion": "43162",
+-    "generation": 1,
++    "resourceVersion": "44111",
++    "generation": 2,
+    "creationTimestamp": "2021-06-16T10:19:20Z",
+    "labels": {
+      "app": "puptoo",
+@@ -69,7 +69,7 @@
+        "manager": "manager",
+        "operation": "Update",
+        "apiVersion": "apps/v1",
+-        "time": "2021-06-16T10:19:20Z",
++        "time": "2021-06-16T10:24:49Z",
+        "fieldsType": "FieldsV1",
+        "fieldsV1": {
+          "f:metadata": {</pre>
+</div>
+</div>
+</li>
+<li>
+<p><code>debugOptions.cache.create</code> - When an item is <strong>created</strong> in Clowder&#8217;s resource cache, this option
+will enable printing of the resource that came from k8s cache. If the resource exists in k8s, this
+will be the starting resource that Clowder will update.</p>
+<div class="literalblock">
+<div class="content">
+<pre>[2021-06-16 11:20:23] INFO  [test-basic-app:puptoo] CREATE resource  app:test-basic-app:puptoo diff:{
+"kind": "Deployment",
+"apiVersion": "apps/v1",
+"metadata": {
+  "name": "puptoo-processor",
+  "namespace": "test-basic-app",
+  "uid": "de492af3-be26-4a2c-b959-54b674c9e34f",
+  "resourceVersion": "43162",
+  "generation": 1,
+  "creationTimestamp": "2021-06-16T10:19:20Z",
+  "labels": {
+    "app": "puptoo",
+    "pod": "puptoo-processor"
+...
+...</pre>
+</div>
+</div>
+</li>
+<li>
+<p><code>debugOptions.cache.update</code> - When enabled, and an item is <strong>updated</strong> in Clowder&#8217;s resource
+cache, this option will print the new version of the item in the cache.</p>
+<div class="literalblock">
+<div class="content">
+<pre>[2021-06-16 11:20:23] INFO  [test-basic-app:puptoo] UPDATE resource  app:test-basic-app:puptoo diff:{
+"kind": "ServiceAccount",
+"apiVersion": "v1",
+"metadata": {
+  "name": "iqe-test-basic-app",
+  "namespace": "test-basic-app",
+  "uid": "3d89ab16-dcb2-4dbb-b0e6-685009878175",
+  "resourceVersion": "43135",
+  "creationTimestamp": "2021-06-16T10:19:20Z",
+  "labels": {
+    "app": "test-basic-app"
+  },
+  "ownerReferences": [
+    {
+      "apiVersion": "cloud.redhat.com/v1alpha1",
+      "kind": "ClowdEnvironment",
+      "name": "test-basic-app",
+      "uid": "25e121df-5b12-4c34-b8f3-a49b0f20afcf",
+      "controller": true
+    }
+  ],</pre>
+</div>
+</div>
+</li>
+<li>
+<p><code>debugOptions.cache.apply</code> - This option is responsible for printing out a diff showing what the
+resource was when it was first read into Clowder&#8217;s cache via the <code>create</code>, and what is being
+applied via the k8s client.</p>
+<div class="literalblock">
+<div class="content">
+<pre>[2021-06-16 11:20:23] INFO  [test-basic-app:puptoo] Update diff app:test-basic-app:puptoo diff:--- old
++++ new
+@@ -84,14 +84,14 @@
+        "protocol": "TCP",
+        "appProtocol": "http",
+        "port": 8000,
+-        "targetPort": 0
++        "targetPort": 8000
+      },
+      {
+        "name": "metrics",
+        "protocol": "TCP",
+        "appProtocol": "http",
+        "port": 9000,
+-        "targetPort": 0
++        "targetPort": 9000
+      }
+    ],</pre>
+</div>
+</div>
+</li>
+<li>
+<p><code>debugOptions.pprof.enable</code> - To aid in profiling, this option enables the cpu profilier.</p>
+</li>
+<li>
+<p><code>debugOptions.pprof.cpuFile</code> - This option sets where the cpu profiling saves the collected
+pprof data.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_featureflags"><a class="anchor" href="#_featureflags"></a>FeatureFlags</h3>
+<div class="paragraph">
+<p>Clowder currently support several feature flags which are intended to enable or disable certain
+behaviour. They are detailed as follows:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Flag Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Permanent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>features.createServiceMonitor</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables the creation of prometheus <code>ServiceMonitor</code>
+resources.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>features.disableWebhooks</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">While testing locally and for the <code>suite_test</code>, the webhooks need
+to be disabled. this option facilitates that.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>features.watchStrimziResources</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">When enabled, Clowder will assume ownership of the <code>Kafka</code>
+and <code>KafkaConnect</code> resources it creates. It will then respond to changes to these resources.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>features.useComplexStrimziTopicNames</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This flag switches Clowder to use non-colliding names.
+for strimzi resources. This is important if using a singular strimzi server for multiple.
+<code>ClowdEnvironment</code> resources.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>features.enableAuthSidecarHook</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Turns the sidecar functionality on or off globally.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>features.enablekedaResources</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Turns on the addition of Keda resources into the protectedGVK list.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>features.perProviderMetrics</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Turns on metrics that calculate reconciliation time per provider.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>features.reconciliationMetrics</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables extra detailed metrics on reconciliations per application.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>disableCloudWatchLogging</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disables logging to CloudWatch.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>enableExternalStrimzi</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables talking to Strimzi via a local nodeport (only useful on minikube)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>disableRandomRoutes</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gives the ability to disable the extra portion of randomness added to routes.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -497,7 +985,7 @@ by Elastic. You will need to install <code>asciidoctor</code>:</p>
   <p>This page was built using the Antora default UI.</p>
   <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
 </footer>
-<script src="../../ui/js/site.js"></script>
+<script id="site-script" src="../../ui/js/site.js" data-ui-root-path="../../ui"></script>
 <script async src="../../ui/js/vendor/highlight.js"></script>
   </body>
 </html>
