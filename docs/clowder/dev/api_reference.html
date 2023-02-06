@@ -1135,19 +1135,25 @@
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong><code>enabled</code></strong> <em>boolean</em></p>
 </div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Enables or Disables the Cyndi pipeline for the Clowdapp</p>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong><code>appName</code></strong> <em>string</em></p>
 </div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Application name - if empty will default to Clowdapp&#8217;s name</p>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong><code>insightsOnly</code></strong> <em>boolean</em></p>
 </div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Desired host syndication type (all or Insights hosts only) - defaults to false (All hosts)</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -1187,6 +1193,14 @@
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The mode of operation of the Clowder Database Provider. Valid options are: (<strong><em>app-interface</em></strong>) where the provider will pass through database credentials found in the secret defined by the database name in the ClowdApp, and (<strong><em>local</em></strong>) where the provider will spin up a local instance of the database.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>caBundleURL</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Indicates where Clowder will fetch the database CA certificate bundle from. Currently only used in (<strong><em>app-interface</em></strong>) mode. If none is specified, the AWS RDS combined CA bundle is used.</p>
 </div></div></td>
 </tr>
 <tr>
