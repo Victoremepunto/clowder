@@ -7,14 +7,13 @@
     <link rel="canonical" href="https://redhatinsights.github.io/clowder/clowder/dev/api_reference.html">
     <meta name="generator" content="Antora 3.1.4">
     <link rel="stylesheet" href="../../ui/css/site.css">
-    <script>var uiRootPath = '../../ui'</script>
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://redhatinsights.github.io/clowder">Clowder Documentation</a>
-      <button class="navbar-burger" data-target="topbar-nav">
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
         <span></span>
         <span></span>
         <span></span>
@@ -54,6 +53,7 @@
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all"></button>
     <h3 class="title"><a href="index.html">Clowder</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
@@ -232,6 +232,27 @@
 </ul>
 </div>
 <div class="sect3">
+<h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-apipath"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-apipath"></a>APIPath</h4>
+<div class="paragraph">
+<p><em>Underlying type:</em> <em>string</em></p>
+</div>
+<div class="paragraph">
+<p>A string representing an API path that should route to this app for Clowder-managed Ingresses (in format "/api/somepath/")</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-publicwebservice">PublicWebService</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
 <h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-appinfo"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-appinfo"></a>AppInfo</h4>
 <div class="paragraph">
 <p>AppInfo details information about a specific app.</p>
@@ -274,6 +295,27 @@
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-appprotocol"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-appprotocol"></a>AppProtocol</h4>
+<div class="paragraph">
+<p><em>Underlying type:</em> <em>string</em></p>
+</div>
+<div class="paragraph">
+<p>AppProtocol is used to define an appProtocol for Istio</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-privatewebservice">PrivateWebService</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-appresourcestatus"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-appresourcestatus"></a>AppResourceStatus</h4>
@@ -379,19 +421,19 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>advanced</code></strong> <em>AdvancedConfig</em></p>
+<p><strong><code>advanced</code></strong> <em><a href="#k8s-api-github-com-kedacore-keda-v2-apis-keda-v1alpha1-advancedconfig">AdvancedConfig</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>triggers</code></strong> <em><a href="#k8s-api-github-com-kedacore-keda-v2-apis-keda-v1alpha1-scaletriggers">ScaleTriggers</a> array</em></p>
+<p><strong><code>triggers</code></strong> <em>ScaleTriggers array</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>fallback</code></strong> <em>Fallback</em></p>
+<p><strong><code>fallback</code></strong> <em><a href="#k8s-api-github-com-kedacore-keda-v2-apis-keda-v1alpha1-fallback">Fallback</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
@@ -437,7 +479,7 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>mode</code></strong> <em>AutoScalerMode</em></p>
+<p><strong><code>mode</code></strong> <em><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-autoscalermode">AutoScalerMode</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Enable the autoscaler feature</p>
@@ -445,6 +487,27 @@
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-autoscalermode"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-autoscalermode"></a>AutoScalerMode</h4>
+<div class="paragraph">
+<p><em>Underlying type:</em> <em>string</em></p>
+</div>
+<div class="paragraph">
+<p>AutoScaler mode enabled or disabled the autoscaler. The key "keda" is deprecated but preserved for backwards compatibility</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-autoscalerconfig">AutoScalerConfig</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-autoscalersimple"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-autoscalersimple"></a>AutoScalerSimple</h4>
@@ -543,7 +606,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>metadata</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/#objectmeta-v1-meta">ObjectMeta</a></em></p>
+<p><strong><code>metadata</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#objectmeta-v1-meta">ObjectMeta</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Refer to Kubernetes API documentation for fields of <code>metadata</code>.</p>
@@ -595,7 +658,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>metadata</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/#listmeta-v1-meta">ListMeta</a></em></p>
+<p><strong><code>metadata</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#listmeta-v1-meta">ListMeta</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Refer to Kubernetes API documentation for fields of <code>metadata</code>.</p>
@@ -718,7 +781,7 @@
 <p><strong><code>optionalDependencies</code></strong> <em>string array</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>A list of optional dependencies in the form of the name of the ClowdApps that are will be added to the configuration when present.</p>
+<p>A list of optional dependencies in the form of the name of the ClowdApps that will be added to the configuration when present.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -795,7 +858,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>metadata</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/#objectmeta-v1-meta">ObjectMeta</a></em></p>
+<p><strong><code>metadata</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#objectmeta-v1-meta">ObjectMeta</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Refer to Kubernetes API documentation for fields of <code>metadata</code>.</p>
@@ -847,7 +910,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>metadata</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/#listmeta-v1-meta">ListMeta</a></em></p>
+<p><strong><code>metadata</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#listmeta-v1-meta">ListMeta</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Refer to Kubernetes API documentation for fields of <code>metadata</code>.</p>
@@ -911,7 +974,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>resourceDefaults</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/#resourcerequirements-v1-core">ResourceRequirements</a></em></p>
+<p><strong><code>resourceDefaults</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#resourcerequirements-v1-core">ResourceRequirements</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Defines the default resource requirements in standard k8s format in the event that they omitted from a PodSpec inside a ClowdApp.</p>
@@ -981,7 +1044,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>metadata</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/#objectmeta-v1-meta">ObjectMeta</a></em></p>
+<p><strong><code>metadata</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#objectmeta-v1-meta">ObjectMeta</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Refer to Kubernetes API documentation for fields of <code>metadata</code>.</p>
@@ -1031,7 +1094,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>metadata</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/#listmeta-v1-meta">ListMeta</a></em></p>
+<p><strong><code>metadata</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#listmeta-v1-meta">ListMeta</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Refer to Kubernetes API documentation for fields of <code>metadata</code>.</p>
@@ -1099,8 +1162,37 @@
 <p>Testing is the struct for building out test jobs (iqe, etc) in a CJI</p>
 </div></div></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>runOnNotReady</code></strong> <em>boolean</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>RunOnNotReady is a flag that when true, the job will not wait for the deployment to be ready to run</p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-configaccessmode"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-configaccessmode"></a>ConfigAccessMode</h4>
+<div class="paragraph">
+<p><em>Underlying type:</em> <em>string</em></p>
+</div>
+<div class="paragraph">
+<p>Describes what amount of app config is mounted to the pod</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-testingconfig">TestingConfig</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-cyndispec"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-cyndispec"></a>CyndiSpec</h4>
@@ -1149,6 +1241,14 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>additionalFilters</code></strong> <em>object array</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>AdditionalFilters</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong><code>insightsOnly</code></strong> <em>boolean</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -1189,7 +1289,7 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>mode</code></strong> <em>DatabaseMode</em></p>
+<p><strong><code>mode</code></strong> <em><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-databasemode">DatabaseMode</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The mode of operation of the Clowder Database Provider. Valid options are: (<strong><em>app-interface</em></strong>) where the provider will pass through database credentials found in the secret defined by the database name in the ClowdApp, and (<strong><em>local</em></strong>) where the provider will spin up a local instance of the database.</p>
@@ -1213,6 +1313,27 @@
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-databasemode"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-databasemode"></a>DatabaseMode</h4>
+<div class="paragraph">
+<p><em>Underlying type:</em> <em>string</em></p>
+</div>
+<div class="paragraph">
+<p>DatabaseMode details the mode of operation of the Clowder Database Provider</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-databaseconfig">DatabaseConfig</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-databasespec"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-databasespec"></a>DatabaseSpec</h4>
@@ -1256,7 +1377,7 @@
 <p><strong><code>name</code></strong> <em>string</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Defines the Name of the database to be created. This will be used as the name of the logical database inside the database server in (<strong><em>local</em></strong>) mode and the name of the secret to be used for Database configuration in (<strong><em>app-interface</em></strong>) mode.</p>
+<p>Defines the Name of the database used by this app. This will be used as the name of the logical database created by Clowder when the DB provider is in (<strong><em>local</em></strong>) mode. In (<strong><em>app-interface</em></strong>) mode, the name here is used to locate the DB secret as a fallback mechanism in cases where there is no 'clowder/database: &lt;app-name&gt;' annotation set on any secrets by looking for a secret with 'db.host' starting with '&lt;name&gt;-&lt;env&gt;' where env is usually 'stage' or 'prod'</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1341,7 +1462,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>web</code></strong> <em>WebDeprecated</em></p>
+<p><strong><code>web</code></strong> <em><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-webdeprecated">WebDeprecated</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>If set to true, creates a service on the webPort defined in the ClowdEnvironment resource, along with the relevant liveness and readiness probes.</p>
@@ -1363,7 +1484,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>k8sAccessLevel</code></strong> <em>K8sAccessLevel</em></p>
+<p><strong><code>k8sAccessLevel</code></strong> <em><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-k8saccesslevel">K8sAccessLevel</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>K8sAccessLevel defines the level of access for this deployment</p>
@@ -1550,7 +1671,7 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>privateStrategy</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/#deploymentstrategytype-v1-apps">DeploymentStrategyType</a></em></p>
+<p><strong><code>privateStrategy</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#deploymentstrategytype-v1-apps">DeploymentStrategyType</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>PrivateStrategy allows a deployment that only uses a private port to set the deployment strategy one of Recreate or Rolling, default for a private service is Recreate. This is to enable a quicker roll out for services that do not have public facing endpoints.</p>
@@ -1643,7 +1764,7 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>mode</code></strong> <em>FeatureFlagsMode</em></p>
+<p><strong><code>mode</code></strong> <em><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-featureflagsmode">FeatureFlagsMode</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The mode of operation of the Clowder FeatureFlag Provider. Valid options are: (<strong><em>app-interface</em></strong>) where the provider will pass through credentials to the app configuration, and (<strong><em>local</em></strong>) where a local Unleash instance will be created.</p>
@@ -1685,6 +1806,109 @@
 </table>
 </div>
 <div class="sect3">
+<h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-featureflagsmode"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-featureflagsmode"></a>FeatureFlagsMode</h4>
+<div class="paragraph">
+<p><em>Underlying type:</em> <em>string</em></p>
+</div>
+<div class="paragraph">
+<p>FeatureFlagsMode details the mode of operation of the Clowder FeatureFlags Provider</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-featureflagsconfig">FeatureFlagsConfig</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-gatewaycert"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-gatewaycert"></a>GatewayCert</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-webconfig">WebConfig</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Field</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>enabled</code></strong> <em>boolean</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Determines whether to enable the gateway cert, default is disabled</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>certMode</code></strong> <em><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-gatewaycertmode">GatewayCertMode</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Determines the mode of certificate generation, either self-signed or acme</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>localCAConfigMap</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Determines a ConfigMap in the target namespace of the env which has ca.pem detailing the cert to use for mTLS verification</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>emailAddress</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The email address used to register with Let&#8217;s Encrypt for acme mode certs</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-gatewaycertmode"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-gatewaycertmode"></a>GatewayCertMode</h4>
+<div class="paragraph">
+<p><em>Underlying type:</em> <em>string</em></p>
+</div>
+<div class="paragraph">
+<p>GatewayCertMode details the mode of operation of the Gateway Cert</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-gatewaycert">GatewayCert</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
 <h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-inmemorydbconfig"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-inmemorydbconfig"></a>InMemoryDBConfig</h4>
 <div class="paragraph">
 <p>InMemoryDBConfig configures the Clowder provider controlling the creation of InMemoryDB instances.</p>
@@ -1715,7 +1939,7 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>mode</code></strong> <em>InMemoryMode</em></p>
+<p><strong><code>mode</code></strong> <em><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-inmemorymode">InMemoryMode</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The mode of operation of the Clowder InMemory Provider. Valid options are: (<strong><em>redis</em></strong>) where a local Minio instance will be created, and (<strong><em>elasticache</em></strong>) which will search the namespace of the ClowdApp for a secret called 'elasticache'</p>
@@ -1731,6 +1955,27 @@
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-inmemorymode"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-inmemorymode"></a>InMemoryMode</h4>
+<div class="paragraph">
+<p><em>Underlying type:</em> <em>string</em></p>
+</div>
+<div class="paragraph">
+<p>InMemoryMode details the mode of operation of the Clowder InMemoryDB Provider</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-inmemorydbconfig">InMemoryDBConfig</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-initcontainer"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-initcontainer"></a>InitContainer</h4>
@@ -1803,7 +2048,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>env</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/#envvar-v1-core">EnvVar</a> array</em></p>
+<p><strong><code>env</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#envvar-v1-core">EnvVar</a> array</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>A list of environment variables used only by the initContainer.</p>
@@ -1846,7 +2091,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>resources</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/#resourcerequirements-v1-core">ResourceRequirements</a></em></p>
+<p><strong><code>resources</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#resourcerequirements-v1-core">ResourceRequirements</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>A pass-through of a resource requirements in k8s ResourceRequirements format. If omitted, the default resource requirements from the ClowdEnvironment will be used.</p>
@@ -1902,7 +2147,7 @@
 <p><strong><code>imageTag</code></strong> <em>string</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>By default, Clowder will set the image on the ClowdJob to be the baseImage:name-of-iqe-plugin, but only the tag can be overridden here</p>
+<p>Image tag to use for IQE container. By default, Clowder will set the image tag to be baseImage:name-of-iqe-plugin, where baseImage is defined in the ClowdEnvironment. Only the tag can be overridden here.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1910,7 +2155,7 @@
 <p><strong><code>plugins</code></strong> <em>string</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>By default, Clowder will use the plugin name indicated in the ClowdApp&#8217;s spec.testing.iqePlugin field. A comma,separated,list of plugins can be supplied here if you wish you override the plugins.</p>
+<p>A comma,separated,list indicating IQE plugin(s) to run tests for. By default, Clowder will use the plugin name given on the ClowdApp&#8217;s spec.testing.iqePlugin field. Use this field if you wish you override the plugin list.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1918,31 +2163,15 @@
 <p><strong><code>ui</code></strong> <em><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-iqeuispec">IqeUISpec</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Indiciates the presence of a selenium container Note: currently not implemented</p>
+<p>Defines configuration for a selenium container (optional)</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>marker</code></strong> <em>string</em></p>
+<p><strong><code>env</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#envvar-v1-core">EnvVar</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>sets the pytest -m args</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>dynaconfEnvName</code></strong> <em>string</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>sets value for ENV_FOR_DYNACONF</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>filter</code></strong> <em>string</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>sets pytest -k args</p>
+<p>Specifies environment variables to set on the IQE container</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1950,7 +2179,31 @@
 <p><strong><code>debug</code></strong> <em>boolean</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Use to start the IQE pod without running tests and leave it up so that 'rsh' can be invoked</p>
+<p>Changes entrypoint to invoke 'iqe container-debug' so that container starts but does not run tests, allowing 'rsh' to be invoked</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>marker</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(DEPRECATED, using 'env' now preferred) sets IQE_MARKER_EXPRESSION env var on the IQE container</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>dynaconfEnvName</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(DEPRECATED, using 'env' now preferred) sets ENV_FOR_DYNACONF env var on the IQE container</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>filter</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(DEPRECATED, using 'env' now preferred) sets IQE_FILTER_EXPRESSION env var on the IQE container</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1958,7 +2211,7 @@
 <p><strong><code>requirements</code></strong> <em>string</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>sets values passed to IQE '--requirements' arg</p>
+<p>(DEPRECATED, using 'env' now preferred) sets IQE_REQUIREMENTS env var on the IQE container</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1966,7 +2219,7 @@
 <p><strong><code>requirementsPriority</code></strong> <em>string</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>sets values passed to IQE '--requirements-priority' arg</p>
+<p>(DEPRECATED, using 'env' now preferred) sets IQE_REQUIREMENTS_PRIORITY env var on the IQE container</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1974,7 +2227,7 @@
 <p><strong><code>testImportance</code></strong> <em>string</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>sets values passed to IQE '--test-importance' arg</p>
+<p>(DEPRECATED, using 'env' now preferred) sets IQE_TEST_IMPORTANCE env var on the IQE container</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1982,7 +2235,7 @@
 <p><strong><code>logLevel</code></strong> <em>string</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>sets value for IQE_LOG_LEVEL (default if empty: "info")</p>
+<p>(DEPRECATED, using 'env' now preferred) sets IQE_LOG_LEVEL env var on the IQE container</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1990,7 +2243,7 @@
 <p><strong><code>parallelEnabled</code></strong> <em>string</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>sets value passed to IQE 'IQE_PARALLEL_ENABLED' arg</p>
+<p>(DEPRECATED, using 'env' now preferred) sets IQE_PARALLEL_ENABLED env var on the IQE container</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1998,7 +2251,23 @@
 <p><strong><code>parallelWorkerCount</code></strong> <em>string</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>sets value passed to IQE 'IQE_PARALLEL_WORKER_COUNT' arg</p>
+<p>(DEPRECATED, using 'env' now preferred) sets IQE_PARALLEL_WORKER_COUNT env var on the IQE container</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>rpArgs</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(DEPRECATED, using 'env' now preferred) sets IQE_RP_ARGS env var on the IQE container</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>ibutsuSource</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(DEPRECATED, using 'env' now preferred) sets IQE_IBUTSU_SOURCE env var on the IQE container</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2130,7 +2399,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>resources</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/#resourcerequirements-v1-core">ResourceRequirements</a></em></p>
+<p><strong><code>resources</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#resourcerequirements-v1-core">ResourceRequirements</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Defines the resource requests/limits set on selenium containers</p>
@@ -2263,7 +2532,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>restartPolicy</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/#restartpolicy-v1-core">RestartPolicy</a></em></p>
+<p><strong><code>restartPolicy</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#restartpolicy-v1-core">RestartPolicy</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Defines the restart policy for the CronJob, defaults to never</p>
@@ -2271,7 +2540,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>concurrencyPolicy</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/#concurrencypolicy-v1-batch">ConcurrencyPolicy</a></em></p>
+<p><strong><code>concurrencyPolicy</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#concurrencypolicy-v1-batch">ConcurrencyPolicy</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Defines the concurrency policy for the CronJob, defaults to Allow Only applies to Cronjobs</p>
@@ -2321,6 +2590,24 @@
 </table>
 </div>
 <div class="sect3">
+<h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-jobconditionstate"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-jobconditionstate"></a>JobConditionState</h4>
+<div class="paragraph">
+<p><em>Underlying type:</em> <em>string</em></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-clowdjobinvocationstatus">ClowdJobInvocationStatus</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
 <h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-jobtestingspec"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-jobtestingspec"></a>JobTestingSpec</h4>
 <div class="sidebarblock">
 <div class="content">
@@ -2356,6 +2643,30 @@
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-k8saccesslevel"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-k8saccesslevel"></a>K8sAccessLevel</h4>
+<div class="paragraph">
+<p><em>Underlying type:</em> <em>string</em></p>
+</div>
+<div class="paragraph">
+<p>K8sAccessLevel defines the access level for the deployment, one of 'default', 'view' or 'edit'</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-deployment">Deployment</a></p>
+</li>
+<li>
+<p><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-testingconfig">TestingConfig</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-kafkaclusterconfig"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-kafkaclusterconfig"></a>KafkaClusterConfig</h4>
@@ -2500,7 +2811,7 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>mode</code></strong> <em>KafkaMode</em></p>
+<p><strong><code>mode</code></strong> <em><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-kafkamode">KafkaMode</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The mode of operation of the Clowder Kafka Provider. Valid options are: (<strong><em>operator</em></strong>) which provisions Strimzi resources and will configure KafkaTopic CRs and place them in the Kafka cluster&#8217;s namespace described in the configuration, (<strong><em>app-interface</em></strong>) which simply passes the topic names through to the App&#8217;s cdappconfig.json and expects app-interface to have created the relevant topics, and (<strong><em>local</em></strong>) where a small instance of Kafka is created in the desired cluster namespace and configured to auto-create topics.</p>
@@ -2552,6 +2863,22 @@
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Managed topic prefix for the managed cluster. Only used in (<strong><em>managed</em></strong>) mode.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>topicNamespace</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Namespace that kafkaTopics should be written to for (<strong><em>msk</em></strong>) mode.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>clusterAnnotation</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Cluster annotation identifier for (<strong><em>msk</em></strong>) mode.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -2678,6 +3005,27 @@
 </table>
 </div>
 <div class="sect3">
+<h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-kafkamode"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-kafkamode"></a>KafkaMode</h4>
+<div class="paragraph">
+<p><em>Underlying type:</em> <em>string</em></p>
+</div>
+<div class="paragraph">
+<p>KafkaMode details the mode of operation of the Clowder Kafka Provider</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-kafkaconfig">KafkaConfig</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
 <h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-kafkatopicspec"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-kafkatopicspec"></a>KafkaTopicSpec</h4>
 <div class="paragraph">
 <p>KafkaTopicSpec defines the desired state of KafkaTopic</p>
@@ -2772,7 +3120,7 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>mode</code></strong> <em>LoggingMode</em></p>
+<p><strong><code>mode</code></strong> <em><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-loggingmode">LoggingMode</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The mode of operation of the Clowder Logging Provider. Valid options are: (<strong><em>app-interface</em></strong>) where the provider will pass through cloudwatch credentials to the app configuration, and (<strong><em>none</em></strong>) where no logging will be configured.</p>
@@ -2780,6 +3128,27 @@
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-loggingmode"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-loggingmode"></a>LoggingMode</h4>
+<div class="paragraph">
+<p><em>Underlying type:</em> <em>string</em></p>
+</div>
+<div class="paragraph">
+<p>LoggingMode details the mode of operation of the Clowder Logging Provider</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-loggingconfig">LoggingConfig</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-metricsconfig"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-metricsconfig"></a>MetricsConfig</h4>
@@ -2828,10 +3197,10 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>mode</code></strong> <em>MetricsMode</em></p>
+<p><strong><code>mode</code></strong> <em><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-metricsmode">MetricsMode</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>The mode of operation of the Metrics provider. The allowed modes are  (<strong><em>none</em></strong>), which disables metrics service generation, or (<strong><em>operator</em></strong>) where services and probes are generated. (<strong><em>app-interface</em></strong>) where services and probes are generated for app-interface.</p>
+<p>The mode of operation of the Metrics provider. The allowed modes are (<strong><em>none</em></strong>), which disables metrics service generation, or (<strong><em>operator</em></strong>) where services and probes are generated. (<strong><em>app-interface</em></strong>) where services and probes are generated for app-interface.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -2844,6 +3213,45 @@
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-metricsmode"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-metricsmode"></a>MetricsMode</h4>
+<div class="paragraph">
+<p><em>Underlying type:</em> <em>string</em></p>
+</div>
+<div class="paragraph">
+<p>MetricsMode details the mode of operation of the Clowder Metrics Provider</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-metricsconfig">MetricsConfig</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-metricswebservice"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-metricswebservice"></a>MetricsWebService</h4>
+<div class="paragraph">
+<p>MetricsWebService is the definition of the metrics web service. This is automatically enabled and the configuration here at the moment is included for completeness, as there are no configurable options.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-webservices">WebServices</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-namespacedname"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-namespacedname"></a>NamespacedName</h4>
@@ -2933,7 +3341,7 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>mode</code></strong> <em>ObjectStoreMode</em></p>
+<p><strong><code>mode</code></strong> <em><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-objectstoremode">ObjectStoreMode</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The mode of operation of the Clowder ObjectStore Provider. Valid options are: (<strong><em>app-interface</em></strong>) where the provider will pass through Amazon S3 credentials to the app configuration, and (<strong><em>minio</em></strong>) where a local Minio instance will be created.</p>
@@ -2957,6 +3365,27 @@
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-objectstoremode"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-objectstoremode"></a>ObjectStoreMode</h4>
+<div class="paragraph">
+<p><em>Underlying type:</em> <em>string</em></p>
+</div>
+<div class="paragraph">
+<p>ObjectStoreMode details the mode of operation of the Clowder ObjectStore Provider</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-objectstoreconfig">ObjectStoreConfig</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-podspec"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-podspec"></a>PodSpec</h4>
@@ -3032,7 +3461,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>env</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/#envvar-v1-core">EnvVar</a> array</em></p>
+<p><strong><code>env</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#envvar-v1-core">EnvVar</a> array</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>A list of environment variables in k8s defined format.</p>
@@ -3040,7 +3469,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>resources</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/#resourcerequirements-v1-core">ResourceRequirements</a></em></p>
+<p><strong><code>resources</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#resourcerequirements-v1-core">ResourceRequirements</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>A pass-through of a resource requirements in k8s ResourceRequirements format. If omitted, the default resource requirements from the ClowdEnvironment will be used.</p>
@@ -3048,7 +3477,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>livenessProbe</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/#probe-v1-core">Probe</a></em></p>
+<p><strong><code>livenessProbe</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#probe-v1-core">Probe</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>A pass-through of a Liveness Probe specification in standard k8s format. If omitted, a standard probe will be setup point to the webPort defined in the ClowdEnvironment and a path of /healthz. Ignored if Web is set to false.</p>
@@ -3056,7 +3485,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>readinessProbe</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/#probe-v1-core">Probe</a></em></p>
+<p><strong><code>readinessProbe</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#probe-v1-core">Probe</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>A pass-through of a Readiness Probe specification in standard k8s format. If omitted, a standard probe will be setup point to the webPort defined in the ClowdEnvironment and a path of /healthz. Ignored if Web is set to false.</p>
@@ -3064,7 +3493,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>volumes</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/#volume-v1-core">Volume</a> array</em></p>
+<p><strong><code>volumes</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#volume-v1-core">Volume</a> array</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>A pass-through of a list of Volumes in standa k8s format.</p>
@@ -3072,10 +3501,26 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>volumeMounts</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/#volumemount-v1-core">VolumeMount</a> array</em></p>
+<p><strong><code>volumeMounts</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#volumemount-v1-core">VolumeMount</a> array</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>A pass-through of a list of VolumesMounts in standa k8s format.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>lifecycle</code></strong> <em><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#lifecycle-v1-core">Lifecycle</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>A pass-through of Lifecycle specification in standard k8s format</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>terminationGracePeriodSeconds</code></strong> <em>integer</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>A pass-through of TerminationGracePeriodSeconds specification in standard k8s format default is 30 seconds</p>
 </div></div></td>
 </tr>
 <tr>
@@ -3174,7 +3619,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>appProtocol</code></strong> <em>AppProtocol</em></p>
+<p><strong><code>appProtocol</code></strong> <em><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-appprotocol">AppProtocol</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>AppProtocol determines the protocol to be used for the private port, (defaults to http)</p>
@@ -3452,7 +3897,15 @@
 <p><strong><code>apiPath</code></strong> <em>string</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>APIPath describes the api path that will be configured to serve this backend from.</p>
+<p>(DEPRECATED, use apiPaths instead) Configures a path named '/api/&lt;apiPath&gt;/' that this app will serve requests from.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>apiPaths</code></strong> <em><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-apipath">APIPath</a> array</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Defines a list of API paths (each matching format: "/api/some-path/") that this app will serve requests from.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -3535,12 +3988,33 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>mode</code></strong> <em>ServiceMeshMode</em></p>
+<p><strong><code>mode</code></strong> <em><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-servicemeshmode">ServiceMeshMode</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-servicemeshmode"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-servicemeshmode"></a>ServiceMeshMode</h4>
+<div class="paragraph">
+<p><em>Underlying type:</em> <em>string</em></p>
+</div>
+<div class="paragraph">
+<p>ServiceMeshMode just determines if we enable or disable the service mesh</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-servicemeshconfig">ServiceMeshConfig</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-sidecar"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-sidecar"></a>Sidecar</h4>
@@ -3795,7 +4269,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>k8sAccessLevel</code></strong> <em>K8sAccessLevel</em></p>
+<p><strong><code>k8sAccessLevel</code></strong> <em><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-k8saccesslevel">K8sAccessLevel</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The mode of operation of the testing Pod. Valid options are: 'default', 'view' or 'edit'</p>
@@ -3803,7 +4277,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>configAccess</code></strong> <em>ConfigAccessMode</em></p>
+<p><strong><code>configAccess</code></strong> <em><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-configaccessmode">ConfigAccessMode</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The mode of operation for access to outside app configs. Valid options are: (<strong><em>none</em></strong>)&#8201;&#8212;&#8201;no app config is mounted to the pod (<strong><em>app</em></strong>)&#8201;&#8212;&#8201;only the ClowdApp&#8217;s config is mounted to the pod (<strong><em>environment</em></strong>)&#8201;&#8212;&#8201;the config for all apps in the env are mounted</p>
@@ -3947,7 +4421,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong><code>mode</code></strong> <em>WebMode</em></p>
+<p><strong><code>mode</code></strong> <em><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-webmode">WebMode</a></em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The mode of operation of the Web provider. The allowed modes are (<strong><em>none</em></strong>/<strong><em>operator</em></strong>), and (<strong><em>local</em></strong>) which deploys keycloak and BOP.</p>
@@ -3993,8 +4467,37 @@
 <p>TLS sidecar enablement</p>
 </div></div></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>gatewayCert</code></strong> <em><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-gatewaycert">GatewayCert</a></em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Gateway cert</p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-webdeprecated"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-webdeprecated"></a>WebDeprecated</h4>
+<div class="paragraph">
+<p><em>Underlying type:</em> <em>boolean</em></p>
+</div>
+<div class="paragraph">
+<p>WebDeprecated defines a boolean flag to help distinguish from the newer WebServices</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-deployment">Deployment</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-webimages"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-webimages"></a>WebImages</h4>
@@ -4051,6 +4554,14 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong><code>caddyGateway</code></strong> <em>string</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Caddy Gateway image&#8201;&#8212;&#8201;if not defined, value from operator config is used if set, otherwise a hard-coded default is used.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong><code>mockBop</code></strong> <em>string</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -4059,6 +4570,27 @@
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect3">
+<h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-webmode"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-webmode"></a>WebMode</h4>
+<div class="paragraph">
+<p><em>Underlying type:</em> <em>string</em></p>
+</div>
+<div class="paragraph">
+<p>WebMode details the mode of operation of the Clowder Web Provider</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Appears In:</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-webconfig">WebConfig</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-webservices"><a class="anchor" href="#k8s-api-github-com-redhatinsights-clowder-apis-cloud-redhat-com-v1alpha1-webservices"></a>WebServices</h4>
